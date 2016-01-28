@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <MyXmLBody>
+        <PersonalInformation>
+            <Name>Season Tory</Name>
+            <DOB>1990-11-28</DOB>
+            <Address>100 First Ave</Address>
+        </PersonalInformation>
+        <OtherInformation gender='male' weight='150 lbs'>
+            <Education>Masters</Education>
+        </OtherInformation>
+    </MyXmLBody>

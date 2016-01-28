@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Application</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body ng-app="sampleApp" ng-controller="mainController">
+    <h1>Sample Application</h1>
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <!-- PAGE HEADER -->
+            <!-- FORM -->
+            <!-- pass in the variable if our form is valid or invalid -->
+            <form class="form-horizontal" name="userForm" ng-submit="submitForm(userForm.$valid)" enctype="multipart/form-data" novalidate>
+                <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+                <!-- NAME -->
+                <div class="form-group">
+                    <label for="xmlpath" class="col-sm-2 control-label">Xml File Path:</label>
+                    <div class="col-sm-10">
+                        <input id="xmlpath" type="file" name="xmlpath" ng-model="xmlpath" valid-file required accept=".xml" />
+                    </div>
+                </div>
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+            </form>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <table border="1" ng-hide="display">
+                        <caption>Personal Information</caption>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Address</th>
+                        </tr>
+                        <tr ng-repeat="data in personInfo">
+                            <td>{{data.name}}</td>
+                            <td>{{data.dateofbirth|date:format:shortDate}}</td>
+                            <td>{{data.address}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <table border="1" ng-hide="display">
+                        <caption>Other Information</caption>
+                        <tr>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Education</th>
+                        </tr>
+                        <tr ng-repeat="other in personInfo">
+                            <td>{{other.name}}</td>
+                            <td>{{other.gender}}</td>
+                            <td>{{other.education}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- col-sm-8 -->
+    </div>
+    <!-- /container -->
+    
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/xml2json.js"></script>
+</body>
+
+</html>
